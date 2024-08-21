@@ -1,15 +1,48 @@
+
 body{
-    background-color: aqua;
+    background-image: url(./background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: fixed;
+}
+
+#myName {
+    text-align: center;
+    font-size: 4em;
+    
+}
+
+#links {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#links a {
+    text-decoration: none;
+    color: black;
 }
 
 h2 {
-    color: white;
+    color: black;
     text-align: center;
 }
 
-.intro {
-    text-align: center;
+main {
+    position: absolute;
+    top: 24%;
+    left: 41.5%;
+    font-size: 1.5em;
 }
+
+.myWhoMouseOver {
+    position: absolute;
+    left: 1.5%;
+    text-align: center;
+    font-size: 1em;
+    color: red;
+}
+
 
 .row {
     display: flex;
@@ -18,10 +51,4 @@ h2 {
 .column {
     flex: 50.00%;
     padding: 5px;
-}
-
-
-#melvin {
-    background-color: chartreuse;
-    padding: 7px;
 }
