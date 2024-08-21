@@ -3,7 +3,7 @@ body{
     background-image: url(./background.jpg);
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: fixed;
+    background-position: ;
 }
 
 #myName {
@@ -28,7 +28,8 @@ h2 {
     text-align: center;
 }
 
-main {
+#whoContainer {
+    display: flex;
     position: absolute;
     top: 24%;
     left: 41.5%;
@@ -42,6 +43,23 @@ main {
     font-size: 1em;
     color: red;
 }
+
+#whyContainer {
+    display: flex;
+    position: absolute;
+    top: 48%;
+    left: 42.5%;
+    font-size: 1.5em;
+}
+
+.myWhyMouseOver {
+    position: absolute;
+    left: 1.5%;
+    text-align: center;
+    font-size: 1em;
+    color: orange;
+}
+
 
 
 .row {
