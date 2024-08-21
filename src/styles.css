@@ -35,7 +35,6 @@ h2 {
     left: 41.5%;
     font-size: 1.5em;
 }
-
 .myWhoMouseOver {
     position: absolute;
     left: 1.5%;
@@ -47,11 +46,10 @@ h2 {
 #whyContainer {
     display: flex;
     position: absolute;
-    top: 48%;
-    left: 42.5%;
+    top: 42%;
+    left: 43%;
     font-size: 1.5em;
 }
-
 .myWhyMouseOver {
     position: absolute;
     left: 1.5%;
@@ -60,13 +58,10 @@ h2 {
     color: orange;
 }
 
-
-
-.row {
-    display: flex;
-}
-
-.column {
-    flex: 50.00%;
-    padding: 5px;
+img {
+    height: 300px;
+    width: 200px;
+    position: absolute;
+    top: 62%;
+    left: 41%;
 }
