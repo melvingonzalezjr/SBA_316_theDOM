@@ -3,14 +3,12 @@ ADD statements about 'Who am I' and 'My Why' with eventListenerss on respctive h
 change textContent
 ***********************************************************************************************/
 //Get ny Who am I statement
-const myWho = document.getElementById("myWho");
+const myWho = document.getElementById("myWho").parentNode;
 let myWhoText = myWho.textContent;
 
 //even handler functions to show answer to "Who am I?" or to revert to initial content.
 function revealMyWho(e) {
-  e.target.textContent = `Software Engineer in Space City!
-I'm interested in AI, Data Science, and Mathematics
-Learn more about me with above links`;
+  e.target.textContent = `Software Engineer in Space City! I'm interested in AI, Data Science, and Mathematics. Learn more about me with above links`;
   e.target.classList.add("myWhoMouseOver");
 }
 function hideMyWho(e) {

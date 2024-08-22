@@ -1,71 +1,73 @@
-
-body{
-    background-image: url(./background.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
+body {
+  background-image: url(./background.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 #myName {
-    text-align: center;
-    font-size: 4em;
-    
+  text-align: center;
+  font-size: 4em;
 }
 
 #links {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 #links a {
-    text-decoration: none;
-    color: black;
+  text-decoration: none;
+  color: black;
 }
 
 h2 {
-    color: black;
-    text-align: center;
+  color: black;
+  text-align: center;
 }
 
 #whoContainer {
-    display: flex;
-    position: absolute;
-    top: 24%;
-    left: 41.5%;
-    font-size: 1.5em;
+  display: flex;
+  position: absolute;
+  top: 28%;
+  left: 41.5%;
+  font-size: 1.5em;
 }
 .myWhoMouseOver {
-    position: absolute;
-    left: 1.5%;
-    text-align: center;
-    font-size: 1em;
-    color: red;
+  position: fixed;
+  left: 0;
+  text-align: justify;
+  font-size: 1.5em;
+  color: red;
+  width: 50%;
+  top: 28%;
 }
 
 #whyContainer {
-    display: flex;
-    position: absolute;
-    top: 42%;
-    left: 43%;
-    font-size: 1.5em;
+  display: flex;
+  position: absolute;
+  top: 40%;
+  left: 43%;
+  font-size: 1.5em;
 }
 .myWhyMouseOver {
-    position: absolute;
-    left: 1.5%;
-    text-align: center;
-    font-size: 1em;
-    color: orange;
+  position: fixed;
+  right: 0;
+  text-align: justify;
+  font-size: 1.5em;
+  color: orange;
+  width: 50%;
+  top: 40%;
 }
 
 img {
-    height: 300px;
-    width: 200px;
-    position: absolute;
-    top: 62%;
-    left: 41%;
+  height: 300px;
+  width: 200px;
+  position: absolute;
+  top: 62%;
+  left: 41%;
 }
 
 form {
-    position: absolute;
-    top: 65%;
+  position: absolute;
+  top: 65%;
 }
