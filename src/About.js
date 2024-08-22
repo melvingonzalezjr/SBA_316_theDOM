@@ -68,30 +68,80 @@ img.addEventListener("mouseout", () => {
 FORM VALIDATION
 ***************/
 const nameEl = document.getElementById("name");
-nameEl.addEventListener("invalid", (e) => {     //if invalid (as determined by HTML validation)
-    e.preventDefault(); // Prevent the default validation bubble from showing
+const nameLabel = nameEl.parentNode.querySelector('label')  
+//parentNode is li. then querySelect label
+nameEl.addEventListener("invalid", (e) => {    
+     //if invalid (as determined by HTML validation)
+    e.preventDefault(); 
+    // Prevent the default validation bubble from showing
     alert("Please enter a name. No numbers or special characters.");
-    nameEl.setCustomValidity("This field is required.");    //window pops up. User must confirm before continue
-    e.target.style.borderColor = 'rgb(158, 0, 0)';          //new border/background colors for invalid input
+    //window pops up. User must confirm before continue
+    e.target.style.borderColor = 'rgb(158, 0, 0)';          
     e.target.style.backgroundColor = 'greenyellow';
+    nameLabel.style.fontWeight = 'bold';
+    nameLabel.style.background = 'red';
+    //new styling for input box and label if input is invalid
+});
+nameEl.addEventListener("input", () => {
+    //validator now valid input to reset to default values
+    if (nameEl.validity.valid) {
+        nameEl.style.borderColor = ''; 
+        nameEl.style.backgroundColor = '';
+        nameLabel.style.fontWeight = '';
+        nameLabel.style.background = '';
+    }
 });
 
-
+//Repeat for email
 const email = document.getElementById("email");
+const emailLabel = email.parentNode.querySelector('label')
 email.addEventListener("invalid", (e) => {
     e.preventDefault(); 
     alert("Please enter a valid email. Example: mgonzalez713@gmail.com");
-    email.setCustomValidity("This field is required.");
     e.target.style.borderColor = 'rgb(158, 0, 0)';
     e.target.style.backgroundColor = 'greenyellow';
+    emailLabel.style.fontWeight = 'bold';
+    emailLabel.style.background = 'red';
+});
+email.addEventListener("input", () => {
+    if (email.validity.valid) {
+        email.style.borderColor = ''; 
+        email.style.backgroundColor = '';
+        emailLabel.style.fontWeight = '';
+        emailLabel.style.background = '';
+    }
 });
 
+//Repeat for message
 const message = document.getElementById("message");
+const messageLabel = message.parentNode.querySelector('label')
 message.addEventListener("invalid", (e) => {
     e.preventDefault(); 
     alert("Please leave a message, and I will promptly respond.")
-    message.setCustomValidity("This field is required.");
     e.target.style.borderColor = 'rgb(158, 0, 0)';
     e.target.style.backgroundColor = 'greenyellow';
+    messageLabel.style.fontWeight = 'bold';
+    messageLabel.style.background = 'red';
+});
+message.addEventListener("input", () => {
+    if (message.validity.valid) {
+        message.style.borderColor = ''; 
+        message.style.backgroundColor = '';
+        messageLabel.style.fontWeight = '';
+        messageLabel.style.background = '';
+    }
 });
 
+/**********************************************************************************
+ CONFIRMING INFO IS CORRECT BEFORE SUBMITTING FORM USING window.method BOM PROPERTY
+ *********************************************************************************/
+const form = document.querySelector('form');
+form.addEventListener('submit', e => {
+    //listen on 'submit'.          
+    const confirmation = window.confirm("Please confirm the info is correct.");
+    //confirmation is boolean that is the response to OK(true) or CANCEL(false) from window.confirm()
+    if (!confirmation) {
+        e.preventDefault();
+    //if CANCEL(false), prevent default behavior of submit.
+    }
+});
