@@ -3,7 +3,6 @@ body{
     background-image: url(./background.jpg);
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: ;
 }
 
 #myName {
@@ -69,8 +68,4 @@ img {
 form {
     position: absolute;
     top: 65%;
-}
-
-input:invalid {
-    
 }

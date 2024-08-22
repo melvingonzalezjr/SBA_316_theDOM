@@ -1,3 +1,7 @@
+/***********************************************************************************************
+ADD statements about 'Who am I' and 'My Why' with eventListenerss on respctive h2's to then
+change textContent
+***********************************************************************************************/
 //Get ny Who am I statement
 const myWho = document.getElementById("myWho");
 let myWhoText = myWho.textContent;
@@ -37,111 +41,137 @@ function hideMyWhy(e) {
 myWhy.addEventListener("mouseover", revealMyWhy);
 myWhy.addEventListener("mouseout", hideMyWhy);
 
-/******************************************
-ADD PHOTO. Modify src attribute onmouseover 
-******************************************/
+/***********************************************************************************************
+Create mePhotoContainer from myWhy.cloneNode(false). Add Photo. Iterate over photos array to 
+switch photos onmouseover
+***********************************************************************************************/
+let mePhoto = myWhy.cloneNode(false);
+document.querySelector("body").appendChild(mePhoto);
+mePhoto.setAttribute("id", "photoContainer");
+
 const photos = [{ photo: "src/meBW.jpg" }, { photo: "src/meClr.jpg" }];
 
-const mePhoto = document.getElementById("photoContainer");
+// const mePhoto = document.getElementById("photoContainer");
 const img = document.createElement("img");
 img.setAttribute("src", photos[0].photo);
 mePhoto.appendChild(img);
 
 img.addEventListener("mouseover", () => {
   const clrPhoto = photos.find((source) => {
-    return source.photo === "src/meClr.jpg";    // Explicitly return the result of the comparison. if true:
-  });                                           //clrPhoto = source where condition is true
+    return source.photo === "src/meClr.jpg"; // Explicitly return the result of the comparison. if true:
+  }); //clrPhoto = source where condition is true
   if (clrPhoto) {
     img.setAttribute("src", clrPhoto.photo);
   }
 });
 img.addEventListener("mouseout", () => {
-    const bwPhoto = photos.find((source) => {
-        return source.photo === "src/meBW.jpg";
-    });
-    if (bwPhoto) {
-        img.setAttribute("src", bwPhoto.photo);
-    }
+  const bwPhoto = photos.find((source) => {
+    return source.photo === "src/meBW.jpg";
+  });
+  if (bwPhoto) {
+    img.setAttribute("src", bwPhoto.photo);
+  }
 });
 
-/**************
-FORM VALIDATION
-***************/
+/******************************************************************************************************
+FORM VALIDATION. Invalid responses cause an event that makes alert box appear. Invalid input boxes also
+change styles to pop out! Respective labels are referenced using parentNode and querySelector('label')
+******************************************************************************************************/
 const nameEl = document.getElementById("name");
-const nameLabel = nameEl.parentNode.querySelector('label')  
-//parentNode is li. then querySelect label
-nameEl.addEventListener("invalid", (e) => {    
-     //if invalid (as determined by HTML validation)
-    e.preventDefault(); 
-    // Prevent the default validation bubble from showing
-    alert("Please enter a name. No numbers or special characters.");
-    //window pops up. User must confirm before continue
-    e.target.style.borderColor = 'rgb(158, 0, 0)';          
-    e.target.style.backgroundColor = 'greenyellow';
-    nameLabel.style.fontWeight = 'bold';
-    nameLabel.style.background = 'red';
-    //new styling for input box and label if input is invalid
+const nameLabel = nameEl.parentNode.querySelector("label");
+//parentNode is li. Then querySelect first instace of label, which is the sibling of nameEl
+nameEl.addEventListener("invalid", (e) => {
+  //if invalid (as determined by HTML validation)
+  e.preventDefault();
+  // Prevent the default validation bubble from showing
+  alert("📛 Please enter a name. No numbers or special characters. 📛");
+  //window pops up. User must confirm before continue
+  e.target.style.borderColor = "rgb(158, 0, 0)";
+  e.target.style.backgroundColor = "greenyellow";
+  nameLabel.style.fontWeight = "bold";
+  nameLabel.style.background = "red";
+  //new styling for input box and label if input is invalid
 });
 nameEl.addEventListener("input", () => {
-    //validator now valid input to reset to default values
-    if (nameEl.validity.valid) {
-        nameEl.style.borderColor = ''; 
-        nameEl.style.backgroundColor = '';
-        nameLabel.style.fontWeight = '';
-        nameLabel.style.background = '';
-    }
+  //validator now valid input to reset to default values
+  if (nameEl.validity.valid) {
+    nameEl.style.borderColor = "";
+    nameEl.style.backgroundColor = "";
+    nameLabel.style.fontWeight = "";
+    nameLabel.style.background = "";
+  }
 });
 
 //Repeat for email
 const email = document.getElementById("email");
-const emailLabel = email.parentNode.querySelector('label')
+const emailLabel = email.parentNode.querySelector("label");
 email.addEventListener("invalid", (e) => {
-    e.preventDefault(); 
-    alert("Please enter a valid email. Example: mgonzalez713@gmail.com");
-    e.target.style.borderColor = 'rgb(158, 0, 0)';
-    e.target.style.backgroundColor = 'greenyellow';
-    emailLabel.style.fontWeight = 'bold';
-    emailLabel.style.background = 'red';
+  e.preventDefault();
+  alert("📧 Please enter a valid email. Example: mgonzalez713@gmail.com. 📧");
+  e.target.style.borderColor = "rgb(158, 0, 0)";
+  e.target.style.backgroundColor = "greenyellow";
+  emailLabel.style.fontWeight = "bold";
+  emailLabel.style.background = "red";
 });
 email.addEventListener("input", () => {
-    if (email.validity.valid) {
-        email.style.borderColor = ''; 
-        email.style.backgroundColor = '';
-        emailLabel.style.fontWeight = '';
-        emailLabel.style.background = '';
-    }
+  if (email.validity.valid) {
+    email.style.borderColor = "";
+    email.style.backgroundColor = "";
+    emailLabel.style.fontWeight = "";
+    emailLabel.style.background = "";
+  }
+});
+
+//Repeat for phone
+const phone = document.getElementById("phone");
+const phoneLabel = phone.parentNode.querySelector("label");
+phone.addEventListener("invalid", (e) => {
+  e.preventDefault();
+  alert("📱 Please enter a phone number in format 777-777-7777. 📱");
+  e.target.style.borderColor = "rgb(158, 0, 0)";
+  e.target.style.backgroundColor = "greenyellow";
+  phoneLabel.style.fontWeight = "bold";
+  phoneLabel.style.background = "red";
+});
+phone.addEventListener("input", () => {
+  if (phone.validity.valid) {
+    phone.style.borderColor = "";
+    phone.style.backgroundColor = "";
+    phoneLabel.style.fontWeight = "";
+    phoneLabel.style.background = "";
+  }
 });
 
 //Repeat for message
 const message = document.getElementById("message");
-const messageLabel = message.parentNode.querySelector('label')
+const messageLabel = message.parentNode.querySelector("label");
 message.addEventListener("invalid", (e) => {
-    e.preventDefault(); 
-    alert("Please leave a message, and I will promptly respond.")
-    e.target.style.borderColor = 'rgb(158, 0, 0)';
-    e.target.style.backgroundColor = 'greenyellow';
-    messageLabel.style.fontWeight = 'bold';
-    messageLabel.style.background = 'red';
+  e.preventDefault();
+  alert("🗯️ Please leave a message, and I will promptly respond. 🗯️");
+  e.target.style.borderColor = "rgb(158, 0, 0)";
+  e.target.style.backgroundColor = "greenyellow";
+  messageLabel.style.fontWeight = "bold";
+  messageLabel.style.background = "red";
 });
 message.addEventListener("input", () => {
-    if (message.validity.valid) {
-        message.style.borderColor = ''; 
-        message.style.backgroundColor = '';
-        messageLabel.style.fontWeight = '';
-        messageLabel.style.background = '';
-    }
+  if (message.validity.valid) {
+    message.style.borderColor = "";
+    message.style.backgroundColor = "";
+    messageLabel.style.fontWeight = "";
+    messageLabel.style.background = "";
+  }
 });
 
 /**********************************************************************************
- CONFIRMING INFO IS CORRECT BEFORE SUBMITTING FORM USING window.method BOM PROPERTY
+ Confirming all input fields are correct from user using window.method BOM property
  *********************************************************************************/
-const form = document.querySelector('form');
-form.addEventListener('submit', e => {
-    //listen on 'submit'.          
-    const confirmation = window.confirm("Please confirm the info is correct.");
-    //confirmation is boolean that is the response to OK(true) or CANCEL(false) from window.confirm()
-    if (!confirmation) {
-        e.preventDefault();
+const form = document.querySelector("form");
+form.addEventListener("submit", (e) => {
+  //listen on 'submit'.
+  const confirmation = window.confirm("Please confirm the info is correct.");
+  //confirmation is boolean that is the response to OK(true) or CANCEL(false) from window.confirm()
+  if (!confirmation) {
+    e.preventDefault();
     //if CANCEL(false), prevent default behavior of submit.
-    }
+  }
 });

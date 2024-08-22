@@ -27,13 +27,13 @@
 
     <div id="whyContainer"></div>
 
-    <div id="photoContainer"></div>
+    <!-- <div id="photoContainer"></div> -->
 
     <form>
       <h2>Want to Connect?</h2>
       <ul>
         <li>
-          <label for="name">Name:</label>
+          <label for="name">Name: </label>
           <input
             type="text"
             placeholder="Name (mandatory)"
@@ -54,7 +54,13 @@
         </li>
         <li>
           <label for="phone">Phone:</label>
-          <input type="tel" placeholder="Phone Number" name="phone" id="phone" />
+          <input
+            type="tel"
+            placeholder="Phone Number"
+            name="phone"
+            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+            id="phone"
+          />
         </li>
         <li>
           <label for="message">Message:</label>
