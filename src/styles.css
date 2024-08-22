@@ -65,3 +65,12 @@ img {
     top: 62%;
     left: 41%;
 }
+
+form {
+    position: absolute;
+    top: 65%;
+}
+
+input:invalid {
+    
+}

@@ -24,7 +24,7 @@ h2Why.textContent = "My Why";
 let myWhyText = h2Why.textContent;
 myWhy.appendChild(h2Why);
 
-//handler functions similar to those on 6 and 13. but now for My Why section
+//handler functions similar to those on 6 and 13. But now for My Why section
 function revealMyWhy(e) {
   e.target.textContent = `The best contributions a person makes are not what they do but what they inspire and enable others to do. I believe in the power of Artificial Intelligence and Human Intelligence to accelerate creativity and innovation on a scale unimaginable today. I want to develop AI tools that free thinkers use to solve societal problems. I don't necessarily want to be a change-maker in the world; I want to be the catalyst for that change.`;
   e.target.classList.add("myWhyMouseOver");
@@ -64,4 +64,34 @@ img.addEventListener("mouseout", () => {
     }
 });
 
+/**************
+FORM VALIDATION
+***************/
+const nameEl = document.getElementById("name");
+nameEl.addEventListener("invalid", (e) => {     //if invalid (as determined by HTML validation)
+    e.preventDefault(); // Prevent the default validation bubble from showing
+    alert("Please enter a name. No numbers or special characters.");
+    nameEl.setCustomValidity("This field is required.");    //window pops up. User must confirm before continue
+    e.target.style.borderColor = 'rgb(158, 0, 0)';          //new border/background colors for invalid input
+    e.target.style.backgroundColor = 'greenyellow';
+});
+
+
+const email = document.getElementById("email");
+email.addEventListener("invalid", (e) => {
+    e.preventDefault(); 
+    alert("Please enter a valid email. Example: mgonzalez713@gmail.com");
+    email.setCustomValidity("This field is required.");
+    e.target.style.borderColor = 'rgb(158, 0, 0)';
+    e.target.style.backgroundColor = 'greenyellow';
+});
+
+const message = document.getElementById("message");
+message.addEventListener("invalid", (e) => {
+    e.preventDefault(); 
+    alert("Please leave a message, and I will promptly respond.")
+    message.setCustomValidity("This field is required.");
+    e.target.style.borderColor = 'rgb(158, 0, 0)';
+    e.target.style.backgroundColor = 'greenyellow';
+});
 

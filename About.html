@@ -11,28 +11,65 @@
     <link rel="icon" href="src/favicon.png" />
   </head>
   <body>
-      <header>
-        <nav id = "myName">Melvin Gonzalez, Jr.</nav>
-        <nav id = "links">
-          <a href="/biography">Biography</a>
-          <a href="/professionalHistory">Professional History</a>
-          <a href="/academicAdventures">Academic Adventures</a>
-          <a href="/bookClub">Book Club</a>
-        </nav>
-      </header>
+    <header>
+      <nav id="myName">Melvin Gonzalez, Jr.</nav>
+      <nav id="links">
+        <a href="/biography">Biography</a>
+        <a href="/professionalHistory">Professional History</a>
+        <a href="/academicAdventures">Academic Adventures</a>
+        <a href="/bookClub">Book Club</a>
+      </nav>
+    </header>
 
-      <div id="whoContainer">
-        <h2 id="myWho">Who am I?</h2>
-      </div>
+    <div id="whoContainer">
+      <h2 id="myWho">Who am I?</h2>
+    </div>
 
-      <div id = "whyContainer">
-        <!-- <h2 id="myWhy">My Why</h2> -->
-      </div>
-      
-      <div id = "photoContainer">
+    <div id="whyContainer"></div>
 
-      </div>
-    
-    <!-- <img src="src/meBW.jpg" alt="It's Me!" /> -->
+    <div id="photoContainer"></div>
+
+    <form>
+      <h2>Want to Connect?</h2>
+      <ul>
+        <li>
+          <label for="name">Name:</label>
+          <input
+            type="text"
+            placeholder="Name (mandatory)"
+            required
+            name="name"
+            id="name"
+          />
+        </li>
+        <li>
+          <label for="email">Email:</label>
+          <input
+            type="email"
+            placeholder="Email (mandatory)"
+            required
+            name="email"
+            id="email"
+          />
+        </li>
+        <li>
+          <label for="phone">Phone:</label>
+          <input type="tel" placeholder="Phone Number" name="phone" id="phone" />
+        </li>
+        <li>
+          <label for="message">Message:</label>
+          <textarea
+            placeholder="Message (mandatory)"
+            required
+            name="message"
+            id="message"
+          ></textarea>
+          <!-- textarea is for making a mult-line comment box. -->
+        </li>
+        <li>
+          <button>Submit</button>
+        </li>
+      </ul>
+    </form>
   </body>
 </html>
